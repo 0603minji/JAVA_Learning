@@ -1,0 +1,181 @@
+[ FileOutputStream 객체로 파일 출력 ]
+  1.  70, 80 입력
+  
+  2.  '7''0'' ''8''0'에 해당하는 문자 코드값으로 저장
+      숫자를 문자로 변환
+
+  3.  객체 fos 생성
+      FileOutputStream fos;
+      fos = new FileOutputStream(파일경로)
+
+  4.  fos.write('7')
+      fos.write('0')
+      fos.write(' ')
+      fos.write('8')
+      fos.write('0')
+
+      저장할 문자를 1Byte 단위로 반복해야하는 번거로움
+
+
+  - 1~ 4 과정을 PrintStream 객체가 모두 역할 가능
+
+=========================================================================
+
+[ PrintStream 객체로 파일 출력 ]
+  - PrintStream(OutputStream out, boolean autoFlush, String encoding)
+
+  1.  70, 80 입력
+
+  2.  객체 fos 생성
+      FileOutputStream fos;
+      fos = new FileOutputStream(파일경로)
+        -  FileOutputStream 객체의 서비스 함수 :  write()
+                                                flush()
+                                                close()
+
+  3.  객체 fout 생성
+      PrintStream fout;
+      fout = new PrintStream(fos)
+        - 객체 fout이 객체 fos를 이용
+        - 응용 객체
+        - PrintStream 객체의 서비스 함수  : print()
+                                          printf()
+
+  4.  '7''0'' ''8''0'에 해당하는 문자 코드값으로 버퍼저장
+      숫자를 문자로 변환  
+
+  5.  파일에 출력
+      fout.print()
+
+=========================================================================
+
+[ PrintStream 객체로 콘솔 출력 ]
+  1.  System.out 객체
+      - PrintStream 객체 형식으로 시스템이 이미 만들어둔 객체
+      - System.out 자체가 PrintStream 형식 객체
+      - 객체 생성 절차 불필요 : PrintStream fout = new PrintStream(System.out) x 
+  
+  2.  System.out.print() 사용
+
+=========================================================================
+
+[ 버퍼 / 스트림 ]
+  1.  버퍼(Buffer)
+      - 데이터 손실 방지
+      - 임시 저장 공간
+      - 데이터를 모아뒀다가 일괄적으로 한꺼번에 전달
+      - 동영상 재생시 사용 적합
+      - 통신에서 사용 적합
+      - HDD 및 장치가 동작 중인동안 전달할 데이터를 보관
+  
+  2.  스트림(Stream)
+      - 데이터를 흘려보내는 것
+      - 출력을 위해 데이터 흘려 보냄
+      - 단방향 흐름
+      - OutputStream  : 출력을 위한 데이터 저달 흐름
+      - PrintStream   : 프린트 위해 흘러보내는 스트림
+
+=========================================================================
+
+[ PrintStream 사용 ]
+    FileOutputStream fos = new FileOutputStream("res/kor.txt")
+    PrintStream out = new PrintStream(fos)
+    user가 직접 fos 객체를 사용 X
+    PrintStream형식의 객체인 out이 응용 O
+
+    - out.print(kor1)         : 파일 출력
+                                out은 user가 생성한 객체
+                                out은 파일출력 객체인 fos를 응용
+    - System.out.print(kor1)  : 콘솔 모니터 출력
+
+=========================================================================
+
+[ Escape 문자 ]
+  - \b  : back space
+  - \t  : 수평탭 삽입
+  - \n  : 새 행 삽입 (개행)
+  - \f  : 다음 페이지로
+  - \r  : 제일 왼쪽 위치로
+  - \"  : 이중따옴표 삽입
+  - \'  : 홑따옴표 사입
+  - \\  : 역슬래시 삽입
+
+=========================================================================
+
+[ 개행 문자 \n ]
+  - System.out.print("abcd\n")
+  - System.out.println("abcd")
+
+=========================================================================
+
+[ 포맷문자열 출력 ]
+  - %d  : 10진수 정수
+  - %x  : 16진수 정수
+  - %o  : 8진수 정수
+  - %f  : 실수
+  - %e  : 지수형 실수
+  - %c  : 문자
+  - %s  : 문자열
+
+  - printf 함수로 포맷 포함 문자열 출력
+  - Print 함수는 오직 문자열만 출력
+
+    ex) System.out.printf("kor = %d", kor)
+
+=========================================================================
+
+[ 형식지정자 옵션 ]
+  - %-10d
+        - +/- : + 오른쪽정렬
+                - 왼쪽정렬
+        - 10  : 길이 고정
+  - %+5.2f
+        - 5   : 소수점 포함 전체 길이 고정
+        - 0.2 : 소수점 아래 자릿수 표현 (2자리)
+                반올림 적용
+  - %1$d      : 1번째 값을 가져와서 출력
+                ex) (("%d, %1$d"), kor, eng) - kor 값을 가져와서 출력
+
+=========================================================================
+
+[ FileInputStream으로 파일 입력 ]
+    - FileInputStream 객체의 서비스 함수  : read()  - 1번 호출에 1byte 단위로 읽음
+                                          skip()
+                                          close()   - 버퍼 삭제
+
+    1.  파일 입력 스트림 형식의 객체 fis 생성
+        입력해올 대상 파일 경로
+        FileInputStream fis = new FileInputStream("res/kor.txt")
+
+    2.  1byte 씩 읽어오는 서비스 함수 read()
+        '7''0'' ''8''0'중 '7' 문자코드값(55)이 code 변수에 저장됨
+        int code = fis.read();
+
+    3.  System.out.println(code)        : code에 담긴 정수 55를
+                                          문자 56으로 출력
+        System.out.printf("%c", code)  : cdoe에 담긴 정수 55에
+                                          해당하는 문자코드 '8'출력
+        
+=========================================================================
+
+[ Scanner 이용하여 입력 ]
+  1.  FileInputStream 형식 객체 fis 생성
+      
+      FileInputStream fis
+      fis = new FileInputStream("res/kor.txt")
+
+  2.  입력 받기
+      fis 객체가 입력된 70 80을 버퍼에 저장
+      '7''0''''8''0' 이렇게 숫자를 문자코드로 저장
+  
+  3.  버퍼에 저장된 문자들 '7''0''''8''0'의 코드값을 숫자로 읽기 위한 역할자
+
+  4.  Scanner 객체 생성
+
+      Scanner sc = new Scanner(fis)
+
+  5.  Scanner 객체의 서비스 함수들
+          - next()      : 구분자(공백)가 있으면 끊어서 문자로 읽는다
+          - nextLine()  : 버퍼에 있는 내용을 한꺼번에 문자열로 읽는다
+          - nextInt()   : 문자를 정수로 읽는다
+ 
