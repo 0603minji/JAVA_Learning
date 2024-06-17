@@ -152,7 +152,7 @@
         int code = fis.read();
 
     3.  System.out.println(code)        : code에 담긴 정수 55를
-                                          문자 56으로 출력
+                                          문자 55으로 출력
         System.out.printf("%c", code)  : cdoe에 담긴 정수 55에
                                           해당하는 문자코드 '8'출력
         
