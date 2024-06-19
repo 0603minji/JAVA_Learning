@@ -53,12 +53,15 @@ public class code_0613 {
         //  입력 받은 것을 바이너리 값으로 버퍼에 저장후 콘솔이 문자로 인식 출력
         fileout.write(65);      //  65의 바이너리 값을 버퍼로
 
+        fileout.write('6');
+        fileout.write('a');
         //  print함수
         //  입력 받은 것을 문자 코드값으로 버퍼에 저장후 콘솔이 문자로 인식 출력
         out.print(65);      //  '6''5'각 문자에 해당하는 코드값을 버퍼로
 
         fileout.write('7');
         out.print('7');
+        out.print(88);
 
         //  한꺼번에 모아서 OS버퍼로 전달
         //  1개씩 데이터를 전달하지않고 일괄처리

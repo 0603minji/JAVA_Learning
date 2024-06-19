@@ -4,14 +4,14 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class App {
+public class exam_0618 {
   public static void main(String[] args) throws IOException {
     // 문제 1 : 다음 블록이 무한 반복하는 조건을 추가하시오.
     while (true)     
     {
       // 메뉴 입력
       int menu = -1;
-      {
+      
         // 문제 1 : 다음 화면 코드를 이용해서 메뉴를 출력하는 코드를 작성하시오.
         System.out.print("""
             ┌───────────────────────────────┐
@@ -24,11 +24,11 @@ public class App {
               번호 입력 >>     """);
 
         // 문제 2 : 콘솔 입력을 위한 Scanner 객체 scan을 생성하는 코드를 작성하시오.
-        Scanner scan = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         // 문제 3 : scan을 이용해서 번호를 입력 받아 menu 변수에 대입하시오.
-        menu = Integer.parseInt(scan.nextLine());
-      }
+        menu = Integer.parseInt(sc.nextLine());
+      
 
       // 문제 4 : 다음 지역블록이 menu가 1인 경우만 실행되도록 조건을 추가하시오.
       if (menu == 1) {
@@ -57,12 +57,12 @@ public class App {
           String name = tokens[0];
           int price = Integer.parseInt(tokens[1]);
           int type = Integer.parseInt(tokens[2]);
-          String type_str = (type==1) ? "에스프레소" : "피지오";
+          String type_str = (type==1) ? "Espresso" : "Fizio";
           
 
           // 문제 12 : 다음 모양으로 위 변수의 값들을 출력하시오.
           System.out.println("├─────────────────┼────────┼───────────────┤");
-          System.out.printf("│%-12s│%-8d│%-12s│\n", name, price, type_str);
+          System.out.printf("│%17s│%8d│%15s│\n", name, price, type_str);
         }
 
         // 문제 13 : 다음 화면 코드를 이용해서 표를 닫는 코드를 출력하시오.
@@ -81,8 +81,8 @@ public class App {
       else if (menu == 3) {
         System.out.println("Bye~");
         return;
+        
       }
-
     } // 무한반복 블록 끝부분
 
   }
