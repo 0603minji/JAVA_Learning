@@ -2,6 +2,9 @@
 // class명 = file명
 // main 함수 가장 먼저 실행
 
+package lecture;
+
+
 class code_0609 {
 
 	public static void main(String[] args) {

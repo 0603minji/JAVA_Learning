@@ -18,6 +18,8 @@ public class exam_0619 {
       FileOutputStream fout = new FileOutputStream("res/data1.txt");
       fout.write(x);
       fout.write(y);
+
+      fout.close();
     }
 
     // 값을 Text로 저장하기
@@ -32,6 +34,10 @@ public class exam_0619 {
       out.print(x);
       out.print(y);
 
+      out.close();
+      fout.close();
+
+
     }
 
     {
@@ -40,16 +46,18 @@ public class exam_0619 {
       //System.out.printf("%d", y);
       // 3. 위의 두 변수의 값을 text로 저장하는 코드를 작성하시오. 두 값 사이에는 어떠한 구분자도 포함하지 않는다.
       FileOutputStream fout = new FileOutputStream("res/data3.txt");
-      //PrintStream out = new PrintStream(fout);
+      PrintStream out = new PrintStream(fout);
 
       fout.write(x);
       fout.write(y);
 
 
-      //out.print(y);
+      out.print(y);
 
+      out.close();
+      fout.close();
     }
-
+    
 
   }
 }

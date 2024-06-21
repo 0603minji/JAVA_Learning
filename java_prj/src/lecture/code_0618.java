@@ -1,13 +1,14 @@
+package lecture;
+
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class code_0619 {
+public class code_0618 {
   public static void main(String[] args) throws IOException {
-    // 메인 메뉴
+    //  메인 메뉴
     {
-      int menu;
-
       System.out.println("┌──────────────────────────┐");
       System.out.println("│        성적 관리         │");
       System.out.println("└──────────────────────────┘");
@@ -19,37 +20,19 @@ public class code_0619 {
       System.out.println("5.  종료");
       System.out.println("-------------------------------------");
       System.out.print("Slecect a menu >>   ");
+
       Scanner scan = new Scanner(System.in);
-      menu = Integer.parseInt(scan.nextLine());
+      int menu = Integer.parseInt(scan.nextLine());
+      System.out.printf("menu value : %d\n", menu);
 
-      switch (menu) {
-        // 목록 보기
-        case 1: {
-          System.out.println("목록 보기 메뉴");
-        }
-          break;
+      System.out.println();
+      System.out.println();
+      System.out.println();
 
-        // 성적 추가
-        case 2: {
-          System.out.println("성적 추가 메뉴");
-        }
-        // 성적 로드
-        case 3: {
-          System.out.println("성적 로드 메뉴");
-        }
-        // 성적 저장
-        case 4: {
-          System.out.println("성적 저장 메뉴");
-        }
-        // 종료
-        case 5: {
-          System.out.println("종료 메뉴");
-        }
-      } // switch문 종료
       scan.close();
     }
 
-    // 성적 출력
+    //  성적 출력
     {
       int no = 0;
       int kor;
@@ -121,29 +104,24 @@ public class code_0619 {
         avg = total / 3.0;
 
         // grade 연산
-
+        
+        if (avg>=90) grade = "A";
+        else if (avg>=80) grade = "B";
+        else if (avg>=70) grade = "C";
+        else if (avg>=60) grade = "D";
+        else grade = "F";
+         
+/* 
+        grade = "F";
+        if (avg >= 60)
+          grade = "D";
+        if (avg >= 70)
+          grade = "C";
+        if (avg >= 80)
+          grade = "B";
         if (avg >= 90)
           grade = "A";
-        else if (avg >= 80)
-          grade = "B";
-        else if (avg >= 70)
-          grade = "C";
-        else if (avg >= 60)
-          grade = "D";
-        else
-          grade = "F";
-
-        /*
-         * grade = "F";
-         * if (avg >= 60)
-         * grade = "D";
-         * if (avg >= 70)
-         * grade = "C";
-         * if (avg >= 80)
-         * grade = "B";
-         * if (avg >= 90)
-         * grade = "A";
-         */
+*/
         // 결과 출력
         System.out.printf(
             "%d. | name : %4s | kor : %4d | eng : %4d | math : %4d | total : %4d | avg : %4.2f | grade : %2s\n",

@@ -1,8 +1,9 @@
+package self_study;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class test {
+public class test02 {
   public static void main(String[] args) throws IOException {
 
     FileInputStream fis = new FileInputStream(

@@ -1,5 +1,6 @@
+package self_study;
 
-public class self_practice {
+public class test01 {
   public static void main(String[] args) {
     
     for (int y = 0; y > -10; y--) {

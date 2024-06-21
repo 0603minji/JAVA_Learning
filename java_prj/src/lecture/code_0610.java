@@ -1,3 +1,5 @@
+package lecture;
+
 public class code_0610 {
     public static void main(String[] args) throws Exception {
 

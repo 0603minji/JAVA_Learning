@@ -1,3 +1,6 @@
+package lecture;
+
+
 
 public class code_0612 {
     public static void main(String[] args) {

@@ -78,12 +78,10 @@ public class exam_0618 {
         System.out.println("음료추가 메뉴 선택");
 
       // 문제 16 : 다음 지역블록이 menu가 3인 경우만 실행되도록 조건을 추가하시오.
-      else if (menu == 3) {
+      else if (menu == 3)
         System.out.println("Bye~");
-        return;
-        
-      }
-    } // 무한반복 블록 끝부분
 
+      sc.close();
+    }// 무한반복 블록 끝부분
   }
 }
